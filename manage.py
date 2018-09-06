@@ -14,3 +14,10 @@ def test():
     import unittest
     tests = unittest.Testloader().discover('tests')
     unitest.TestTestRunner(verbosity=3).run(tests)
+
+@manager.Shell
+def make_shell_context():
+    return dict(app = app, db = db, User = User, Role = Role )
+
+if __name__== '__main__':
+    manager.run()
