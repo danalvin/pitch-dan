@@ -1,23 +1,45 @@
-from app import create_app,db
-from flask_script import Manager, Shell, Server
-from app.models import User,Role, Comment
+# Import db from app factory
+from app import create_app, db
+from flask_script import Manager, Server
+
+# Connect to models
+from app.models import User, CommentsPromotion, CommentsPick, CommentsProduction, CommentsInterview
+
+# Set up migrations
 from flask_migrate import Migrate, MigrateCommand
 
-app = create_app ('development')
-app = create_app ('test')
-migrate = Migrate(app, db)
+# Creating app instance
+# app = create_app('test')
+# app = create_app('development')
+app = create_app('development')
+
+
+# Create manager instance
 manager = Manager(app)
+
+# Create migrate instance
+migrate = Migrate(app, db)
+
+manager.add_command('server', Server)
+
 manager.add_command('db', MigrateCommand)
 
-@manager.comand
+
+@manager.command
 def test():
+    """
+    Run the unit tests
+    """
     import unittest
-    tests = unittest.Testloader().discover('tests')
-    unitest.TestTestRunner(verbosity=3).run(tests)
+    tests = unittest.TestLoader().discover('tests')
+    unittest.TextTestRunner(verbosity=2).run(tests)
 
-@manager.Shell
+
+@manager.shell
 def make_shell_context():
-    return dict(app = app, db = db, User = User, Role = Role )
+    return dict(app=app, db=db, User=User, CommentsPromotion=CommentsPromotion, CommentsPick=CommentsPick, CommentsProduction=CommentsProduction, CommentsInterview=CommentsInterview)
 
-if __name__== '__main__':
+
+if __name__ == '__main__':
+    
     manager.run()
