@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <a href="/category/pick_up_lines_post" ><button class="btn btn-success"><i class="glyphicon glyphicon-plus"></i>Create a pitch</button></a>
+    <br>
+    {%for pick in mypost%}
+    <div class="row">
+        <div class="panel panel-default"><a style="text-decoration: none;" href="/pickup/{{pick.id}}"><h4>{{pick.post}}</h4></a>
+        <h5>by {{pick.user.username}}</h5>
+        <small class="text-muted">Created: {{ pick.date_posted.strftime('%Y-%m-%d') }}</small></div>
+    </div>
+    {%endfor%}
+</div>
+{% endblock %}

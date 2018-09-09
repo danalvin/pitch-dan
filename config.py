@@ -15,15 +15,6 @@ class Config:
     SIMPLEMDE_USE_CDN = True
 
 
-class prodconfig(Config):
-    '''
-    Production configuration child class
-
-    Args:
-        Config: the parent configuration class with the general config settings
-    '''
-    pass
-
 class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://dan:Dan@localhost/watchlist_test'
 
@@ -33,6 +24,5 @@ class DevConfig(Config):
 
 config_options = {
     'development': DevConfig,
-    'production': ProdConfig,
     'test' :TestConfig
 }

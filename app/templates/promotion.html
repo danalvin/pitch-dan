@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <a href="/category/promotion-post" ><button class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Create a pitch</button></a>
+    <br>
+
+    {%for promotion in mypost%}
+    <div class="row">
+        <div class="panel panel-default"><a style="text-decoration: none;" href="/promotion/{{promotion.id}}"><h4>{{promotion.post}}</h4></a>
+            <h5>by {{promotion.user.username}}</h5>
+        <small class="text-muted">Created: {{ promotion.date_posted.strftime('%Y-%m-%d') }}</small></div>
+    </div>
+    {%endfor%}
+</div>
+{% endblock %}

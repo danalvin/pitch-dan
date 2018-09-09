@@ -3,19 +3,35 @@
 <!-- Content block -->
 {% block content %}
 
+<link rel="stylesheet" href="../static/css/styles.css">
 <title> {{ title }} </title>
 
 <div class="container">
 
     <h1>Welcome to One Minute Pitch</h1>
+    <br><br>
 
-<div class="row">
-    <div class="panel panel-default panel-heading"><a href="/category/promotion">Jokes</a></div>
-    <div class="panel panel-default panel-heading"><a href="category/pickuplines">Pick up lines</a></div>
-    <div class="panel panel-default panel-heading"><a href="/category/production">interview</a></div>
-    <div class="panel panel-default panel-heading"><a href='/category/interview'>marketing</a></div>
+<div class="column-md-10">
+    <div class="panel panel-default panel-heading"><a href="/category/promotion">Promotion</a></div>
+    <div class="panel panel-default panel-heading"><a href="category/pickup">Pick up</a></div>
+    <div class="panel panel-default panel-heading"><a href="/category/production">Production</a></div>
+    <div class="panel panel-default panel-heading"><a href='/category/interview'>Interview</a></div>
 </div>
 
+	
+		
+
+	
+	<svg class="loader" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 340">
+		 <circle cx="170" cy="170" r="160" stroke="#E2007C"/>
+		 <circle cx="170" cy="170" r="135" stroke="#404041"/>
+		 <circle cx="170" cy="170" r="110" stroke="#E2007C"/>
+		 <circle cx="170" cy="170" r="85" stroke="#404041"/>
+	</svg>
+	
 </div>
+	
+
+
 
 {% endblock %}

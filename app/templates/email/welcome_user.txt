@@ -1,0 +1,4 @@
+Hello {{user.username}}
+Welcome to Pitch
+
+we would like to officially welcome you to our application and feel free to reach us via this email

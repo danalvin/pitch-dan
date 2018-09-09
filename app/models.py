@@ -25,7 +25,7 @@ class User(UserMixin,db.Model):
     like = db.relationship('Like', backref='user', lazy='dynamic')
     unlike = db.relationship('Unlike', backref='user', lazy='dynamic')
 
-       def __repr__(self):
+    def __repr__(self):
         return f'User{self.username}'
 
     pass_secure = db.Column(db.String(255))
@@ -42,7 +42,7 @@ class User(UserMixin,db.Model):
         return check_password_hash(self.pass_secure, password)
 
     @login_manager.user_loader
-    def load_user(user_id):
+    def load_user(self, user_id):
         return User.query.get(int(user_id))
 
 
